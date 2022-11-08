@@ -344,6 +344,75 @@ mysql> select * from addressbook_table;
 +-----------+----------+----------------+----------+-------+--------+-------------+-----------------------+----------+---------+
 3 rows in set (0.00 sec)
 
+mysql> desc addressbook_table;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| FirstName   | varchar(30)  | NO   |     | NULL    |       |
+| LastName    | varchar(30)  | NO   |     | NULL    |       |
+| Address     | varchar(150) | YES  |     | NULL    |       |
+| city        | varchar(30)  | YES  |     | NULL    |       |
+| State       | varchar(30)  | YES  |     | NULL    |       |
+| Zip         | int          | YES  |     | NULL    |       |
+| PhoneNumber | int          | YES  |     | NULL    |       |
+| Email       | varchar(100) | YES  |     | NULL    |       |
+| Relation    | varchar(200) | YES  |     | NULL    |       |
+| Type        | varchar(200) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> select * from addressbook_table;
++-----------+----------+----------------+----------+-------+--------+-------------+-----------------------+----------+---------+
+| FirstName | LastName | Address        | city     | State | Zip    | PhoneNumber | Email                 | Relation | Type    |
++-----------+----------+----------------+----------+-------+--------+-------------+-----------------------+----------+---------+
+| aman      | kumar    | nehru_nagar    | patna    | bihar | 800001 |    99991236 | aman.kumar@gmail.com  | 0        | friend  |
+| john      | brut     | house number 5 | downtown | dubai | 620001 |    26677236 | john.b@gmail.com      | 0        | friend  |
+| Nadeem    | Akhtar   | gandhi nagar   | chapra   | bihar | 841301 |    78965412 | me.nadeem55@gmail.com | 0        | brother |
++-----------+----------+----------------+----------+-------+--------+-------------+-----------------------+----------+---------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE ADDRESSBOOK_TABLE SET RELATION = 'BRIDGELABZ' WHERE FIRSTNAME = 'AMAN';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM ADDRESSBOOK_TABLE;
++-----------+----------+----------------+----------+-------+--------+-------------+-----------------------+------------+---------+
+| FirstName | LastName | Address        | city     | State | Zip    | PhoneNumber | Email                 | Relation   | Type    |
++-----------+----------+----------------+----------+-------+--------+-------------+-----------------------+------------+---------+
+| aman      | kumar    | nehru_nagar    | patna    | bihar | 800001 |    99991236 | aman.kumar@gmail.com  | BRIDGELABZ | friend  |
+| john      | brut     | house number 5 | downtown | dubai | 620001 |    26677236 | john.b@gmail.com      | 0          | friend  |
+| Nadeem    | Akhtar   | gandhi nagar   | chapra   | bihar | 841301 |    78965412 | me.nadeem55@gmail.com | 0          | brother |
++-----------+----------+----------------+----------+-------+--------+-------------+-----------------------+------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE ADDRESSBOOK_TABLE SET RELATION = 'OFFICE' WHERE FIRSTNAME = 'JOHN';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM ADDRESSBOOK_TABLE;
++-----------+----------+----------------+----------+-------+--------+-------------+-----------------------+------------+---------+
+| FirstName | LastName | Address        | city     | State | Zip    | PhoneNumber | Email                 | Relation   | Type    |
++-----------+----------+----------------+----------+-------+--------+-------------+-----------------------+------------+---------+
+| aman      | kumar    | nehru_nagar    | patna    | bihar | 800001 |    99991236 | aman.kumar@gmail.com  | BRIDGELABZ | friend  |
+| john      | brut     | house number 5 | downtown | dubai | 620001 |    26677236 | john.b@gmail.com      | OFFICE     | friend  |
+| Nadeem    | Akhtar   | gandhi nagar   | chapra   | bihar | 841301 |    78965412 | me.nadeem55@gmail.com | 0          | brother |
++-----------+----------+----------------+----------+-------+--------+-------------+-----------------------+------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE ADDRESSBOOK_TABLE SET RELATION = 'FAMILY' WHERE FIRSTNAME = 'NADEEM';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM ADDRESSBOOK_TABLE;
++-----------+----------+----------------+----------+-------+--------+-------------+-----------------------+------------+---------+
+| FirstName | LastName | Address        | city     | State | Zip    | PhoneNumber | Email                 | Relation   | Type    |
++-----------+----------+----------------+----------+-------+--------+-------------+-----------------------+------------+---------+
+| aman      | kumar    | nehru_nagar    | patna    | bihar | 800001 |    99991236 | aman.kumar@gmail.com  | BRIDGELABZ | friend  |
+| john      | brut     | house number 5 | downtown | dubai | 620001 |    26677236 | john.b@gmail.com      | OFFICE     | friend  |
+| Nadeem    | Akhtar   | gandhi nagar   | chapra   | bihar | 841301 |    78965412 | me.nadeem55@gmail.com | FAMILY     | brother |
++-----------+----------+----------------+----------+-------+--------+-------------+-----------------------+------------+---------+
+3 rows in set (0.00 sec)
+
 mysql>
 
 
